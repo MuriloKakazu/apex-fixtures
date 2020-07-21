@@ -25,11 +25,11 @@ Fixture.of(Account.class).addTemplate('valid', new Map<String, Object> {
 Note that you can also provide a prototype, so that it's applied on top of the template
 
 ```apex
-Fixture.pick(Account.class).create('valid');
+Account account = (Account) Fixture.pick(Account.class).create('valid');
 
 // or
 
-Fixture.pick(Account.class).create('valid', new Account(
+Account account = (Account) Fixture.pick(Account.class).create('valid', new Account(
     Mobile = '+5511990909090'
 ));
 ```
