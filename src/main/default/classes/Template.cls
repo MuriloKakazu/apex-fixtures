@@ -1,5 +1,5 @@
 public class Template {
-    private Map<String, Supplier> properties = new Map<String, Supplier>();
+    private Map<String, Generator> properties = new Map<String, Generator>();
 
     public Template withPrototype(SObject prototype) {
         return withPrototype(prototype.getPopulatedFieldsAsMap());
@@ -12,31 +12,31 @@ public class Template {
         return this;
     }
 
-    public Template withGenerators(Map<String, Supplier> generators) {
+    public Template withGenerators(Map<String, Generator> generators) {
         for (String property : generators.keySet()) {
             put(property, generators.get(property));
         }
         return this;
     }
 
-    public Template withGenerators(Map<Schema.SObjectField, Supplier> generators) {
+    public Template withGenerators(Map<Schema.SObjectField, Generator> generators) {
         for (Schema.SObjectField property : generators.keySet()) {
             put(property.getDescribe().getName(), generators.get(property));
         }
         return this;
     }
 
-    public Template put(String property, Supplier valueSupplier) {
-        properties.put(property, valueSupplier);
+    public Template put(String property, Generator valueGenerator) {
+        properties.put(property, valueGenerator);
         return this;
     }
 
     public Template put(String property, Object value) {
-        return put(property, new IdentitySupplier(value));
+        return put(property, new IdentityGenerator(value));
     }
 
     public Object get(String property) {
-        return properties.get(property).get();
+        return properties.get(property).generate();
     }
 
     public Set<String> getKeys() {
