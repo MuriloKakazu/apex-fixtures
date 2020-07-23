@@ -1,6 +1,6 @@
 public class Fixture {
 
-    private Map<Type, TemplateHolder> templates = new Map<Type, TemplateHolder>();
+    private static Map<Type, TemplateHolder> templates = new Map<Type, TemplateHolder>();
     
     public static TemplateHolder of(Type type) {
         if (!templates.containsKey(type)) {

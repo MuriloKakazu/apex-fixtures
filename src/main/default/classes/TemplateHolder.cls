@@ -14,12 +14,9 @@ public class TemplateHolder {
         return templates.get(name);
     }
 
-    public TemplateHolder addTemplate(String name, Template template) {
+    public Template addTemplate(String name) {
+        Template template = new Template();
         templates.put(name, template);
-        return this;
-    }
-
-    public TemplateHolder addTemplate(String name, Map<String, Object> values) {
-        return addTemplate(name, new Template(values));
+        return template;
     }
 }

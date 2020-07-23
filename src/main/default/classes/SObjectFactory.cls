@@ -7,23 +7,20 @@ public class SObjectFactory {
     }
 
     public SObject create(String templateName) {
-        return create(templateName, templates.getType().newInstance());
+        return create(templateName, (SObject) templates.getType().newInstance());
     }
     
-    public SObject create(String templateName, SObject prototype) {
-        Template template = templates.get(templateName);
-        return create(template, prototype);
+    public SObject create(String templateName, SObject record) {
+        Template template = templates.addTemplate(templateName);
+        return create(template, record);
     }
 
-    private SObject create(Template template, SObject prototype) {
-        SObject record = prototype;
-
-        for (String field : template.getNames()) {
+    private SObject create(Template template, SObject record) {
+        for (String field : template.getKeys()) {
             if (!record.isSet(field)) {
-                record.put(field, templte.get(field));
+                record.put(field, template.get(field));
             }
         }
-
         return record;
     }
 
