@@ -11,10 +11,12 @@ public class TemplateHolder {
     }
 
     public Template getTemplate(String name) {
+        if (!templates.containsKey(name)) throw new NoSuchElementException('Template was not loaded: ' + name);
         return templates.get(name);
     }
 
     public Template addTemplate(String name) {
+        if (templates.containsKey(name)) throw new ConstraintException('Template was already loaded: ' + name);
         Template template = new Template();
         templates.put(name, template);
         return template;

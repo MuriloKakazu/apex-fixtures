@@ -36,6 +36,7 @@ public class Template {
     }
 
     public Object get(String property) {
+        if (!properties.containsKey(property)) throw new NoSuchElementException('Property was not set: ' + property);
         return properties.get(property).generate();
     }
 

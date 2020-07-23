@@ -11,7 +11,7 @@ public class SObjectFactory {
     }
     
     public SObject create(String templateName, SObject record) {
-        Template template = templates.addTemplate(templateName);
+        Template template = templates.getTemplate(templateName);
         return create(template, record);
     }
 

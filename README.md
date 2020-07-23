@@ -7,22 +7,25 @@ This is a simple Salesforce Apex lib, based on six2six's Java [Fixture Factory](
 ### Defining template
 
 ```apex
+// Defining template using a prototype record
+
 Fixture.of(Account.class).addTemplate('valid').withPrototype(new Account(
     Name = 'Jhon',
     Phone = '+5511940404040'
-))
+));
 ```
 
 ### Build object from template
 
-Note that you can also provide an existing record, so that it overrides the template field values
-
 ```apex
+// Build by template name
+
 Account account = (Account) Fixture.pick(Account.class).create('valid');
 
-// or
+
+// Or, build by template name and merge with another record
 
 Account account = (Account) Fixture.pick(Account.class).create('valid', new Account(
-    Mobile = '+5511990909090'
+    Description = 'Key Customer'
 ));
 ```
