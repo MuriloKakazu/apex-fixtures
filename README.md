@@ -9,10 +9,10 @@ This is a simple Salesforce Apex lib, based on six2six's Java [Fixture Factory](
 ```apex
 // Defining template using a prototype record
 
-Fixture.of(Account.class).addTemplate('valid').withPrototype(new Account(
-    Name = 'Jhon',
-    Phone = '+5511940404040'
-));
+Fixture.of(Account.class).addTemplate('valid').withGenerators(new Map<Schema.SObjectField, Generator> {
+    Account.Name => new AnyGenerator('Jhon', 'Jennifer'),
+    Account.Phone => new RandomGenerator(11111111, 99999999).asString()
+});
 ```
 
 ### Build object from template

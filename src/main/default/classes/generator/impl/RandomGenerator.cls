@@ -1,4 +1,4 @@
-public class RandomGenerator implements Generator {
+public class RandomGenerator extends AbstractGenerator {
     private Type returnType;
     private Object minValue;
     private Object maxValue;
@@ -21,7 +21,7 @@ public class RandomGenerator implements Generator {
         this.maxValue = maxValue;
     }
 
-    public Object generate() {
+    public override Object generate() {
         if (returnType == Integer.class) {
             return MathUtil.randomInteger((Integer) minValue, (Integer) maxValue);
         }

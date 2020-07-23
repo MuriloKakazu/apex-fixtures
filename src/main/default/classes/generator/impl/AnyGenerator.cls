@@ -1,4 +1,4 @@
-public class AnyGenerator implements Generator {
+public class AnyGenerator extends AbstractGenerator {
     private List<Object> dataset = new List<Object>();
 
     public AnyGenerator(Object obj0, Object obj1) {
@@ -13,7 +13,7 @@ public class AnyGenerator implements Generator {
         this.dataset = dataset;
     }
 
-    public Object generate() {
+    public override Object generate() {
         return dataset[MathUtil.randomInteger(0, dataset.size())];
     }
 }

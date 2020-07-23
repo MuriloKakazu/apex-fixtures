@@ -1,4 +1,4 @@
-public class IdentityGenerator implements Generator {
+public class IdentityGenerator extends AbstractGenerator {
 
     private Object value;
 
@@ -6,7 +6,7 @@ public class IdentityGenerator implements Generator {
         this.value = value;
     }
 
-    public Object generate() {
+    public override Object generate() {
         return value;
     }
 }
