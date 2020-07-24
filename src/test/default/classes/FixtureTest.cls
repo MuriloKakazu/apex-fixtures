@@ -23,8 +23,8 @@ public class FixtureTest {
         // given - template added
         Fixture.of(Account.class).addTemplate('valid')
             .withGenerators(new Map<Schema.SObjectField, Generator> {
-                Account.Name => new AnyGenerator('Jhon', 'Jennifer'),
-                Account.Phone => new RandomGenerator(11111111, 99999999).asString()
+                Account.Name => new AnyGenerator(new List<Object>{ 'Jhon', 'Jennifer' }),
+                Account.Phone => new RandomGenerator(Integer.class, 11111111, 99999999).asString()
             });
 
         // when - creating fixture data
@@ -46,8 +46,8 @@ public class FixtureTest {
                 BillingStreet = 'Paulista Ave.'
             ))
             .withGenerators(new Map <Schema.SObjectField, Generator> {
-                Account.Name => new AnyGenerator('Jhon', 'Jennifer'),
-                Account.Phone => new RandomGenerator(11111111, 99999999).asString()
+                Account.Name => new AnyGenerator(new List<Object> { 'Jhon', 'Jennifer' }),
+                Account.Phone => new RandomGenerator(Integer.class, 11111111, 99999999).asString()
             });
 
         // when - creating fixture data

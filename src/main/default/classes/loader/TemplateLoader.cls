@@ -1,0 +1,39 @@
+public abstract class TemplateLoader {
+    
+    public abstract void load();
+
+    @TestVisible
+    protected IdentityGenerator identity(Object value) {
+        return new IdentityGenerator(value);
+    }
+
+    @TestVisible
+    protected AnyGenerator any(Object obj0, Object obj1) {
+        return any(new List<Object> { obj0, obj1 });
+    }
+
+    @TestVisible
+    protected AnyGenerator any(Object obj0, Object obj1, Object obj2) {
+        return any(new List<Object> { obj0, obj1, obj2 });
+    }
+
+    @TestVisible
+    protected AnyGenerator any(List<Object> objects) {
+        return new AnyGenerator(objects);
+    }
+
+    @TestVisible
+    protected RandomGenerator random(Integer minValue, Integer maxValue) {
+        return new RandomGenerator(Integer.class, minValue, maxValue);
+    }
+
+    @TestVisible
+    protected RandomGenerator random(Double minValue, Double maxValue) {
+        return new RandomGenerator(Double.class, minValue, maxValue);
+    }
+
+    @TestVisible
+    protected RandomGenerator random(Decimal minValue, Decimal maxValue) {
+        return new RandomGenerator(Decimal.class, minValue, maxValue);
+    }
+}

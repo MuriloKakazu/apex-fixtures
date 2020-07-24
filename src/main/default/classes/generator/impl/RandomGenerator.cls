@@ -3,20 +3,8 @@ public class RandomGenerator extends AbstractGenerator {
     private Object minValue;
     private Object maxValue;
 
-    public RandomGenerator(Integer minValue, Integer maxValue) {
-        this.returnType = Integer.class;
-        this.minValue = minValue;
-        this.maxValue = maxValue;
-    }
-
-    public RandomGenerator(Double minValue, Double maxValue) {
-        this.returnType = Double.class;
-        this.minValue = minValue;
-        this.maxValue = maxValue;
-    }
-
-    public RandomGenerator(Decimal minValue, Decimal maxValue) {
-        this.returnType = Decimal.class;
+    public RandomGenerator(Type returnType, Object minValue, Object maxValue) {
+        this.returnType = returnType;
         this.minValue = minValue;
         this.maxValue = maxValue;
     }

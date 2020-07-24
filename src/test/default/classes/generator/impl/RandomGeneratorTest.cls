@@ -8,7 +8,7 @@ public class RandomGeneratorTest {
         Integer minValue = -100;
 
         // when - generating random value
-        Generator generator = new RandomGenerator(minValue, maxValue);
+        Generator generator = new RandomGenerator(Integer.class, minValue, maxValue);
         Integer randomValue = (Integer) generator.generate();
 
         // then - generated value is within boundaries
@@ -23,7 +23,7 @@ public class RandomGeneratorTest {
         Double minValue = -100.0;
 
         // when - generating random value
-        Generator generator = new RandomGenerator(minValue, maxValue);
+        Generator generator = new RandomGenerator(Double.class, minValue, maxValue);
         Double randomValue = (Double) generator.generate();
 
         // then - generated value is within boundaries
@@ -38,7 +38,7 @@ public class RandomGeneratorTest {
         Decimal minValue = -100;
 
         // when - generating random value
-        Generator generator = new RandomGenerator(minValue, maxValue);
+        Generator generator = new RandomGenerator(Decimal.class, minValue, maxValue);
         Decimal randomValue = (Decimal) generator.generate();
 
         // then - generated value is within boundaries
