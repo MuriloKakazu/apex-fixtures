@@ -4,6 +4,8 @@ This is a simple Salesforce Apex lib, based on six2six's Java [Fixture Factory](
 
 ## Usage
 
+You can check out the [sample code](https://github.com/MuriloKakazu/apex-fixtures/tree/master/samples) or just follow along the rest of the docs.
+
 ### Defining template
 
 ```apex
