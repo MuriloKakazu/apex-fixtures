@@ -39,6 +39,11 @@ public abstract class TemplateLoader {
 
     @TestVisible
     protected TemplateGeneratorsWrapper generator(Schema.SObjectField field, Generator generator) {
+        return generator(field.getDescribe().getName(), generator);
+    }
+
+    @TestVisible
+    protected TemplateGeneratorsWrapper generator(String field, Generator generator) {
         return new TemplateGeneratorsWrapper().generator(field, generator);
     }
 }

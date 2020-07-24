@@ -73,8 +73,8 @@ public class TemplateLoaderTest {
         TemplateGeneratorsWrapper wrapper = templateLoader.generator(Account.Name, templateLoader.any('Jhon', 'Jennifer'));
 
         // then - wrapper contains generator
-        System.assert(wrapper.getGenerators().containsKey(Account.Name));
-        System.assert(wrapper.getGenerators().get(Account.Name) instanceof AnyGenerator);
+        System.assert(wrapper.getGenerators().containsKey('Name'));
+        System.assert(wrapper.getGenerators().get('Name') instanceof AnyGenerator);
     }
     
 }
