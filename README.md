@@ -20,8 +20,8 @@ Fixture.of(Account.class).addTemplate('valid')
 
 Fixture.of(Account.class).addTemplate('valid')
     .withGenerators(
-        generator(Account.Name, any('Jhon', 'Jennifer')),
-        generator(Account.Phone, random(11111111, 99999999).asString())
+         generator(Account.Name, any('Jhon', 'Jennifer'))
+        .generator(Account.Phone, random(11111111, 99999999).asString())
     });
 
 
