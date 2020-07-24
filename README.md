@@ -38,7 +38,7 @@ Alias                  | Description
 -- | - 
 identity(any)          | just returns the provided param. mostly used internally            
 any(list)              | returns a random element from the list                                 
-random(number, number) | returns a random number. only supports integer, double and decimal 
+random(min, max)       | returns a random number. only supports integer, double and decimal 
 
 #### Converters
 
