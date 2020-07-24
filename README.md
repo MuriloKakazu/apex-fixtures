@@ -35,7 +35,7 @@ Generators are useful for providing randomly generated or randomly picked data t
 Some of the available generators are:
 
 Alias                  | Description                                                        
-- | - 
+-- | - 
 identity(any)          | just returns the provided param. mostly used internally            
 any(list)              | returns a random element from the list                                 
 random(number, number) | returns a random number. only supports integer, double and decimal 
@@ -47,7 +47,7 @@ Some generators allow the data to be converted to another primitive type. They c
 Here are some of the converters:
 
 Alias           | Description                                                        
-- | - 
+-- | - 
 asString()      | converts generated data to String            
 asInteger()     | converts generated data to Integer                                 
 asDouble()      | converts generated data to Double
