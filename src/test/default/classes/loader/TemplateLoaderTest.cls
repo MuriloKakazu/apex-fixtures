@@ -10,17 +10,17 @@ public class TemplateLoaderTest {
                     BillingCity = 'Sao Paulo',
                     BillingStreet = 'Paulista Ave.'
                 ))
-                .withGenerators(new Map<Schema.SObjectField, Generator> {
-                    Account.Name => any('Jhon', 'Jennifer'),
-                    Account.Phone => random(11111111, 99999999).asString()
-                });
+                .withGenerators(
+                     generator(Account.Name, any('Jhon', 'Jennifer'))
+                    .generator(Account.Phone, random(11111111, 99999999).asString())
+                );
 
             Fixture.of(Account.class).addTemplate('invalid')
-                .withGenerators(new Map<Schema.SObjectField, Generator> {
-                    Account.BillingCountry => any('', null),
-                    Account.Name => any('', null),
-                    Account.Phone => random(-11111111, -99999999).asString()
-                });
+                .withGenerators(
+                     generator(Account.BillingCountry, any('', null))
+                    .generator(Account.Name, any('', null))
+                    .generator(Account.Phone, random(-11111111, -99999999).asString())
+                );
         }
     }
 
@@ -38,7 +38,7 @@ public class TemplateLoaderTest {
     }
 
     @IsTest 
-    private static void shouldCreateIdentityGenerator() {
+    private static void shouldCreateIdentityGeneratorUsingAlias() {
         // given - a template loader
         AccountTemplateLoader templateLoader = new AccountTemplateLoader();
 
@@ -47,7 +47,7 @@ public class TemplateLoaderTest {
     }
 
     @IsTest 
-    private static void shouldCreateAnyGenerator() {
+    private static void shouldCreateAnyGeneratorUsingAlias() {
         // given - a template loader
         AccountTemplateLoader templateLoader = new AccountTemplateLoader();
 
@@ -56,12 +56,25 @@ public class TemplateLoaderTest {
     }
 
     @IsTest
-    private static void shouldCreateRandomGenerator() {
+    private static void shouldCreateRandomGeneratorUsingAlias() {
         // given - a template loader
         AccountTemplateLoader templateLoader = new AccountTemplateLoader();
 
         // then - generator of random numbers was created
         RandomGenerator generator = templateLoader.random(0, 1);
+    }
+
+    @IsTest
+    private static void shouldCreateGeneratorsWrapperUsingAlias() {
+        // given - a template loader
+        AccountTemplateLoader templateLoader = new AccountTemplateLoader();
+
+        // when - creating generators wrapper
+        TemplateGeneratorsWrapper wrapper = templateLoader.generator(Account.Name, templateLoader.any('Jhon', 'Jennifer'));
+
+        // then - wrapper contains generator
+        System.assert(wrapper.getGenerators().containsKey(Account.Name));
+        System.assert(wrapper.getGenerators().get(Account.Name) instanceof AnyGenerator);
     }
     
 }

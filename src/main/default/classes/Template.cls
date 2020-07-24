@@ -12,6 +12,10 @@ public class Template {
         return this;
     }
 
+    public Template withGenerators(TemplateGeneratorsWrapper wrapper) {
+        return withGenerators(wrapper.getGenerators());
+    }
+
     public Template withGenerators(Map<String, Generator> generators) {
         for (String property : generators.keySet()) {
             put(property, generators.get(property));

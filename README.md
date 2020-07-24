@@ -19,9 +19,9 @@ Fixture.of(Account.class).addTemplate('valid')
 // Defining template using generators
 
 Fixture.of(Account.class).addTemplate('valid')
-    .withGenerators(new Map<Schema.SObjectField, Generator> {
-        Account.Name => new AnyGenerator('Jhon', 'Jennifer'),
-        Account.Phone => new RandomGenerator(11111111, 99999999).asString()
+    .withGenerators(
+        generator(Account.Name, any('Jhon', 'Jennifer')),
+        generator(Account.Phone, random(11111111, 99999999).asString())
     });
 
 
@@ -34,21 +34,21 @@ Fixture.of(Account.class).addTemplate('valid')
         BillingCity = 'Sao Paulo',
         BillingStreet = 'Paulista Ave.'
     ))
-    .withGenerators(new Map<Schema.SObjectField, Generator> {
-        Account.Name => new AnyGenerator('Jhon', 'Jennifer'),
-        Account.Phone => new RandomGenerator(11111111, 99999999).asString()
-    });
+    .withGenerators(
+         generator(Account.Name, any('Jhon', 'Jennifer'))
+        .generator(Account.Phone, random(11111111, 99999999).asString())
+    );
 ```
 
-### Build object from template
+### Create object from template
 
 ```apex
-// Build by template name
+// Create object by template name
 
 Account account = (Account) Fixture.pick(Account.class).create('valid');
 
 
-// Or, build by template name and merge with another record
+// Or, create object by template name and merge with another prototype
 
 Account account = (Account) Fixture.pick(Account.class).create('valid', new Account(
     Description = 'Key Customer'

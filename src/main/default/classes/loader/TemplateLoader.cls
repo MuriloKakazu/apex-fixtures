@@ -36,4 +36,9 @@ public abstract class TemplateLoader {
     protected RandomGenerator random(Decimal minValue, Decimal maxValue) {
         return new RandomGenerator(Decimal.class, minValue, maxValue);
     }
+
+    @TestVisible
+    protected TemplateGeneratorsWrapper generator(Schema.SObjectField field, Generator generator) {
+        return new TemplateGeneratorsWrapper().generator(field, generator);
+    }
 }
