@@ -3,6 +3,9 @@
     {
       "path": "src",
       "default": true
+    },
+    {
+      "path": "samples"
     }
   ],
   "namespace": "",
