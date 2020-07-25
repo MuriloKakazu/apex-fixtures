@@ -39,3 +39,6 @@ $RECYCLE.BIN/
 
 # IntelliJ IDEA stuff
 .idea/
+
+# IlluminatedCloud IntelliJ plugin stuff
+IlluminatedCloud/
