@@ -43,6 +43,11 @@ public abstract class TemplateLoader {
     }
 
     @TestVisible
+    protected CpfGenerator cpf() {
+        return new CpfGenerator();
+    }
+
+    @TestVisible
     protected TemplateGeneratorsWrapper generator(Schema.SObjectField field, Generator generator) {
         return generator(field.getDescribe().getName(), generator);
     }

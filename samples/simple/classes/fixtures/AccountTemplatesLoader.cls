@@ -12,6 +12,7 @@ public class AccountTemplatesLoader extends TemplateLoader {
             .withGenerators(
                  generator(Account.Name, any('João', 'Fernanda'))
                 .generator(Account.Phone, random(11111111, 99999999).asString())
+                .generator(Account.LegalIdentification__c, cpf().formatted())
             );
 
         Fixture.of(Account.class).addTemplate('american')
