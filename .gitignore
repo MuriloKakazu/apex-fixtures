@@ -36,3 +36,6 @@ $RECYCLE.BIN/
 
 # VSCode stuff
 .vscode/
+
+# IntelliJ IDEA stuff
+.idea/
