@@ -46,5 +46,19 @@ public class RandomGeneratorTest {
         System.assert(randomValue <= maxValue);
     }
     
+    @IsTest
+    private static void shouldGenerateRandomLong() {
+        // given - random boundaries
+        Long maxValue = 100L;
+        Long minValue = -100L;
+
+        // when - generating random value
+        Generator generator = new RandomGenerator(Long.class, minValue, maxValue);
+        Long randomValue = (Long) generator.generate();
+
+        // then - generated value is within boundaries
+        System.assert(randomValue >= minValue);
+        System.assert(randomValue <= maxValue);
+    }
 
 }

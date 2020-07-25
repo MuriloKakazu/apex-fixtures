@@ -20,7 +20,7 @@ public class MathUtilTest {
         }
 
         // and - assert generated set has a reasonable amount of unique numbers
-        System.assert(generatedSet.size() >= 25);
+        System.assert(generatedSet.size() >= 40);
     }
 
     @IsTest
@@ -65,6 +65,28 @@ public class MathUtilTest {
 
         // and - assert generated set has a reasonable amount of unique numbers
         System.assert(generatedSet.size() >= 900);
+    }
+
+    @IsTest
+    private static void shouldGenerateRandomLongs() {
+        // given - a range with 100 numbers in between
+        Long minValue = 9223372036854775707L;
+        Long maxValue = 9223372036854775807L;
+
+        Set<Long> generatedSet = new Set<Long>();
+
+        // for 1000 iterations
+        for (Integer i = 0; i < 1000; i++) {
+            Long randomValue = MathUtil.randomLong(minValue, maxValue);
+            generatedSet.add(randomValue);
+
+            // assert generated number is within boundaries
+            System.assert(randomValue >= minValue);
+            System.assert(randomValue <= maxValue);
+        }
+
+        // and - assert generated set has a reasonable amount of unique numbers
+        System.assert(generatedSet.size() >= 40);
     }
 
 }

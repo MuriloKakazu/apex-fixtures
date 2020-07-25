@@ -23,7 +23,7 @@ public class AccountTemplatesLoader extends TemplateLoader {
             ))
             .withGenerators(
                  generator(Account.Name, any('Jhon', 'Jennifer'))
-                .generator(Account.Phone, random(1111111111, 2147483647).asString())
+                .generator(Account.Phone, random(1111111111L, 9999999999L).asString())
             );
     }
 

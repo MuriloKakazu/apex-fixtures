@@ -38,6 +38,11 @@ public abstract class TemplateLoader {
     }
 
     @TestVisible
+    protected RandomGenerator random(Long minValue, Long maxValue) {
+        return new RandomGenerator(Long.class, minValue, maxValue);
+    }
+
+    @TestVisible
     protected TemplateGeneratorsWrapper generator(Schema.SObjectField field, Generator generator) {
         return generator(field.getDescribe().getName(), generator);
     }

@@ -19,6 +19,9 @@ public class RandomGenerator extends AbstractGenerator {
         if (returnType == Decimal.class) {
             return MathUtil.randomDecimal((Decimal) minValue, (Decimal) maxValue);
         }
+        if (returnType == Long.class) {
+            return MathUtil.randomLong((Long) minValue, (Long) maxValue);
+        }
         throw new UnsupportedOperationException('Can not generate random number for this type: ' + returnType.getName());
     }
 }
