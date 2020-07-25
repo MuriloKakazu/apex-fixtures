@@ -24,7 +24,8 @@ Fixture.of(Account.class).addTemplate('valid')
     ))
     .withGenerators(
          generator(Account.Name, any('Jhon', 'Jennifer'))
-        .generator(Account.Phone, random(11111111, 99999999).asString())
+        .generator(Account.Phone, random(1111111111L, 1199999999L).asString())
+        .generator(Account.LegalIdentification__c, cpf().formatted())
     );
 ```
 
@@ -38,7 +39,8 @@ Alias                  | Description
 -- | - 
 identity(any)          | just returns the provided param. mostly used internally            
 any(list)              | returns a random element from the list                                 
-random(min, max)       | returns a random number. only supports integer, double and decimal 
+random(min, max)       | returns a random number. Supports `Integer`, `Long`, `Double`, `Decimal` as params
+cpf()                  | returns a brazilian natural person identification number. Supports `.formatted()`
 
 #### Converters
 
