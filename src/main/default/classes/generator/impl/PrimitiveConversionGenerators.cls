@@ -25,7 +25,7 @@ public class PrimitiveConversionGenerators {
         }
 
         public override Object generate() {
-            return Integer.valueOf(baseGenerator.generate());
+            return ConversionUtil.convertToInteger(baseGenerator.generate());
         }
     }
 
@@ -35,7 +35,28 @@ public class PrimitiveConversionGenerators {
         }
 
         public override Object generate() {
-            return Double.valueOf(baseGenerator.generate());
+            return ConversionUtil.convertToDouble(baseGenerator.generate());
+        }
+    }
+
+    public class ToDecimal extends PrimitiveConversionGenerator {
+        public ToDecimal(Generator baseGenerator) {
+            super(baseGenerator);
+        }
+
+        public override Object generate() {
+            return ConversionUtil.convertToDecimal(baseGenerator.generate());
+        }
+
+    }
+
+    public class ToLong extends PrimitiveConversionGenerator {
+        public ToLong(Generator baseGenerator) {
+            super(baseGenerator);
+        }
+
+        public override Object generate() {
+            return ConversionUtil.convertToLong(baseGenerator.generate());
         }
     }
 }

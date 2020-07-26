@@ -12,4 +12,12 @@ public abstract class AbstractGenerator implements Generator {
     public Generator asDouble() {
         return new PrimitiveConversionGenerators.ToDouble(this);
     }
+
+    public Generator asDecimal() {
+        return new PrimitiveConversionGenerators.ToDecimal(this);
+    }
+
+    public Generator asLong() {
+        return new PrimitiveConversionGenerators.ToLong(this);
+    }
 }

@@ -8,9 +8,13 @@ You can check out the [sample code](https://github.com/MuriloKakazu/apex-fixture
 
 ### Defining templates
 
-You can define multiple templates for each SObject type. Template names can only repeat for different SObject types.
+You can define multiple templates for each SObject type. 
+Template names can only repeat for different SObject types.
 
-The template fields can be defined using a prototype SObject for fixed data, and generators for generated data. It's not required that you use both ways (i.e. you can define a template just using fixed data, or just using generators).
+The template fields can be defined using a prototype SObject for fixed data, 
+and generators for generated data. 
+It's not required that you use both ways 
+(i.e. you can define a template just using fixed data, or just using generators).
 
 An example of a template definition using a mix of fixed and generated data looks like so:
 
@@ -33,26 +37,26 @@ Fixture.of(Account.class).addTemplate('valid')
 
 Generators are useful for providing randomly generated or randomly picked data to the records.
 
-Some of the available generators are:
-
 Alias                  | Description                                                        
 -----                  | ----------- 
-identity(any)          | just returns the provided param. mostly used internally            
-any(list)              | returns a random element from the list                                 
+identity(any)          | return the provided param
+any(list)              | returns a random element from the list
 random(min, max)       | returns a random number. Supports `Integer`, `Long`, `Double`, `Decimal` as params
-cpf()                  | returns a brazilian natural person identification number. Supports `.formatted()`
+cpf()                  | returns a random brazilian natural person identification number. Supports `.formatted()`
 
 #### Converters
 
-Some generators allow the data to be converted to another primitive type. They can be called just after the generators. e.g: `random(0, 100).asString()`
-
-Here are some of the converters:
+Some generators allow the data to be converted to another primitive type. 
+They can be called just after the generators. 
+e.g: `random(0, 100).asString()`
 
 Alias           | Description                                                        
 -----           | -----------
-asString()      | converts generated data to String            
-asInteger()     | converts generated data to Integer                                 
+asString()      | converts generated data to String
+asInteger()     | converts generated data to Integer
+asLong()        | converts generated data to Long
 asDouble()      | converts generated data to Double
+asDecimal()     | converts generated data to Decimal
 
 ### Create objects using templates
 
@@ -63,7 +67,8 @@ Account account = (Account) Fixture.pick(Account.class).create('valid');
 ```
 #### Or pass a prototype as well
 
-Passing a prototype will merge the objects. The prototype fields's values overwrite the template ones.
+Passing a prototype will merge the objects. 
+The prototype fields's values overwrite the template ones.
 
 ```apex
 Account account = (Account) Fixture.pick(Account.class).create('valid', new Account(
