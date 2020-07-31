@@ -61,4 +61,34 @@ public class RandomGeneratorTest {
         System.assert(randomValue <= maxValue);
     }
 
+    @IsTest
+    private static void shouldGenerateRandomDate() {
+        // given - random boundaries
+        Date minValue = Date.today();
+        Date maxValue = Date.today().addMonths(1);
+
+        // when - generating random value
+        Generator generator = new RandomGenerator(Date.class, minValue, maxValue);
+        Date randomValue = (Date) generator.generate();
+
+        // then - generated value is within boundaries
+        System.assert(randomValue >= minValue);
+        System.assert(randomValue <= maxValue);
+    }
+
+    @IsTest
+    private static void shouldGenerateRandomDateTime() {
+        // given - random boundaries
+        DateTime minValue = DateTime.now();
+        DateTime maxValue = DateTime.now().addDays(1);
+
+        // when - generating random value
+        Generator generator = new RandomGenerator(DateTime.class, minValue, maxValue);
+        DateTime randomValue = (DateTime) generator.generate();
+
+        // then - generated value is within boundaries
+        System.assert(randomValue >= minValue);
+        System.assert(randomValue <= maxValue);
+    }
+
 }

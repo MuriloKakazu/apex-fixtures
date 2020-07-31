@@ -22,6 +22,12 @@ public class RandomGenerator extends AbstractGenerator {
         if (returnType == Long.class) {
             return MathUtil.randomLong((Long) minValue, (Long) maxValue);
         }
+        if (returnType == Date.class) {
+            return DateUtil.getRandomDateBetween((Date) minValue, (Date) maxValue);
+        }
+        if (returnType == DateTime.class) {
+            return DateUtil.getRandomDateTimeBetween((DateTime) minValue, (DateTime) maxValue);
+        }
         throw new UnsupportedOperationException('Can not generate random number for this type: ' + returnType.getName());
     }
 }

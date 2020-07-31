@@ -1,6 +1,7 @@
 # Apex Fixtures
 
-This is a simple Salesforce Apex lib, based on six2six's Java [Fixture Factory](https://github.com/six2six/fixture-factory), with the purpose of helping build and organize test data in a simple and efficient way.
+This is a simple Salesforce Apex lib, based on six2six's Java [Fixture Factory](https://github.com/six2six/fixture-factory), 
+with the purpose of helping build and organize test data in a simple and efficient way.
 
 ## Usage
 
@@ -41,7 +42,7 @@ Alias                  | Description
 -----                  | ----------- 
 identity(any)          | return the provided param
 any(list)              | returns a random element from the list
-random(min, max)       | returns a random number. Supports `Integer`, `Long`, `Double`, `Decimal` as params
+random(min, max)       | returns a random value in a range. Supports `Integer`, `Long`, `Double`, `Decimal`, `Date`, `DateTime` as params
 cpf()                  | returns a random brazilian natural person identification number. Supports `.formatted()`
 
 #### Converters
@@ -52,11 +53,11 @@ e.g: `random(0, 100).asString()`
 
 Alias           | Description                                                        
 -----           | -----------
-asString()      | converts generated data to String
-asInteger()     | converts generated data to Integer
-asLong()        | converts generated data to Long
-asDouble()      | converts generated data to Double
-asDecimal()     | converts generated data to Decimal
+asString()      | converts value to String
+asInteger()     | converts value to Integer
+asLong()        | converts value to Long
+asDouble()      | converts value to Double
+asDecimal()     | converts value to Decimal
 
 ### Create objects using templates
 

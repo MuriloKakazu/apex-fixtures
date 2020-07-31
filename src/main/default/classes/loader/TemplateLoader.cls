@@ -43,6 +43,16 @@ public abstract class TemplateLoader {
     }
 
     @TestVisible
+    protected RandomGenerator random(Date minValue, Date maxValue) {
+        return new RandomGenerator(Date.class, minValue, maxValue);
+    }
+
+    @TestVisible
+    protected RandomGenerator random(DateTime minValue, DateTime maxValue) {
+        return new RandomGenerator(DateTime.class, minValue, maxValue);
+    }
+
+    @TestVisible
     protected CpfGenerator cpf() {
         return new CpfGenerator();
     }
