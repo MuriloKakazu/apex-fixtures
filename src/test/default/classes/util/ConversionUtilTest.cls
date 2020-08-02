@@ -88,14 +88,17 @@ public class ConversionUtilTest {
             System.assertEquals((Double) 100.123, ConversionUtil.convertToDouble(testValue));
         }
 
+        // NaN
+        System.assertEquals('NaN', String.valueOf(ConversionUtil.convertToDouble('NaN')));
+
     }
 
     @IsTest
     private static void willNotConvertToDouble() {
 
         for (Object testValue : new Set<Object> {
-                // null, NaN, non-numerics
-                null, 'NaN', 'abc' }) {
+                // null, non-numerics
+                null, 'abc' }) {
 
             try {
                 ConversionUtil.convertToDouble(testValue);
