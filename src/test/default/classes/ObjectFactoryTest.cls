@@ -1,5 +1,5 @@
 @IsTest
-public class SObjectFactoryTest {
+public class ObjectFactoryTest {
     
     @IsTest
     private static void shouldCreateObjectUsingTemplate() {
@@ -11,7 +11,7 @@ public class SObjectFactoryTest {
         ));
 
         // when - creating object
-        SObjectFactory factory = new SObjectFactory(templates);
+        ObjectFactory factory = new ObjectFactory(templates);
         Account account = (Account) factory.create('example');
 
         // then - template properties were used
@@ -29,7 +29,7 @@ public class SObjectFactoryTest {
         ));
 
         // when - creating object
-        SObjectFactory factory = new SObjectFactory(templates);
+        ObjectFactory factory = new ObjectFactory(templates);
         Account account = (Account) factory.create('example', new Account(Description = 'Key Customer'));
 
         // then - template properties were used
@@ -50,7 +50,7 @@ public class SObjectFactoryTest {
         ));
 
         // when - creating object
-        SObjectFactory factory = new SObjectFactory(templates);
+        ObjectFactory factory = new ObjectFactory(templates);
         Account account = (Account) factory.create('example', new Account(Phone = '+5511970707070'));
 
         // then - template properties were used

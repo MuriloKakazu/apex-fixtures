@@ -10,8 +10,8 @@ public class Fixture {
         return templates.get(type);
     }
 
-    public static SObjectFactory pick(Type type) {
-        return new SObjectFactory(of(type));
+    public static ObjectFactory pick(Type type) {
+        return new ObjectFactory(of(type));
     }
 
 }
