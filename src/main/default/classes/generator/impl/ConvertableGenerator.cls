@@ -1,4 +1,4 @@
-public abstract class AbstractGenerator implements Generator {
+public abstract class ConvertableGenerator implements Generator {
     public abstract Object generate();
 
     public Generator asString() {

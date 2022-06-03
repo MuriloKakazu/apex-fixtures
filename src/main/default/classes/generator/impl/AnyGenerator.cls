@@ -1,4 +1,4 @@
-public class AnyGenerator extends AbstractGenerator {
+public class AnyGenerator extends ConvertableGenerator {
     private List<Object> dataset = new List<Object>();
 
     public AnyGenerator(List<Object> dataset) {

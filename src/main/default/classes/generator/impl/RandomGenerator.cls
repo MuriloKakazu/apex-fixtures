@@ -1,4 +1,4 @@
-public class RandomGenerator extends AbstractGenerator {
+public class RandomGenerator extends ConvertableGenerator {
     private Type returnType;
     private Object minValue;
     private Object maxValue;

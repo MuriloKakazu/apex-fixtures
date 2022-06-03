@@ -1,4 +1,4 @@
-public class IdentityGenerator extends AbstractGenerator {
+public class IdentityGenerator extends ConvertableGenerator {
 
     private Object value;
 
