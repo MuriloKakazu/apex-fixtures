@@ -43,6 +43,8 @@ Alias                  | Description
 identity(any)          | return the provided param
 any(list)              | returns a random element from the list
 random(min, max)       | returns a random value in a range. Supports `Integer`, `Long`, `Double`, `Decimal`, `Date`, `DateTime` as params
+randomString(size)     | returns a random alphanumeric string of the specified size
+email(), email(domain) | returns a random email address, optionally specifying the domain
 cpf()                  | returns a random brazilian natural person identification number. Supports `.formatted()`
 
 #### Converters

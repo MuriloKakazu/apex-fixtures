@@ -4,7 +4,7 @@
             "path": "./src",
             "package": "apex-fixtures",
             "versionName": "ver 0.2",
-            "versionNumber": "0.2.0.NEXT",
+            "versionNumber": "0.2.1.NEXT",
             "default": true
         }
     ],
@@ -14,6 +14,7 @@
     "packageAliases": {
         "apex-fixtures": "0Ho3u000000k9hVCAQ",
         "apex-fixtures@0.1.0-1": "04t3u000002zohBAAQ",
-        "apex-fixtures@0.2.0-1": "04t3u000002zohQAAQ"
+        "apex-fixtures@0.2.0-1": "04t3u000002zohQAAQ",
+        "apex-fixtures@0.2.1-1": "04t3u000002zohVAAQ"
     }
 }

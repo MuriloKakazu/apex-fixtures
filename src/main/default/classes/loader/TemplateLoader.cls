@@ -53,6 +53,21 @@ public abstract class TemplateLoader {
     }
 
     @TestVisible
+    protected StringGenerator randomString(Integer size) {
+        return new StringGenerator(size);
+    }
+
+    @TestVisible
+    protected EmailGenerator email() {
+        return new EmailGenerator();
+    }
+
+    @TestVisible
+    protected EmailGenerator email(String domain) {
+        return new EmailGenerator(domain);
+    }
+
+    @TestVisible
     protected CpfGenerator cpf() {
         return new CpfGenerator();
     }
